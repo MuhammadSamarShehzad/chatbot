@@ -11,6 +11,7 @@ from typing import Annotated, Sequence, TypedDict
 import operator
 from datetime import datetime
 import json
+import os
 
 from app.rag.vector_store import VectorStore
 
@@ -62,9 +63,9 @@ Remember: You are answering as Muhammad Samar Shehzad, speaking about your own e
         
         # Initialize LLM with Mistral using OpenAI-compatible API
         self.llm = ChatOpenAI(
-            model="mistral-medium",
-            api_key="TuVMj9BVPejhPOYCZwIc5VGIkT0wH9DA",
-            base_url="https://api.mistral.ai/v1",
+            model=os.getenv("MISTRAL_MODEL", "mistral-medium"),
+            api_key=os.getenv("MISTRAL_API_KEY"),
+            base_url=os.getenv("MISTRAL_API_BASE", "https://api.mistral.ai/v1"),
             temperature=0.7
         )
         
