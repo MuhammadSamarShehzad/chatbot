@@ -7,7 +7,7 @@ python-multipart==0.0.6
 langchain==0.1.7
 langchain-openai==0.0.5
 langgraph==0.0.39
-langchain-core==0.1.14
+langchain-core==0.1.33
 
 # Vector Database
 chromadb==0.5.0
